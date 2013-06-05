@@ -35,8 +35,6 @@
 + (TCUWebDataCache *)sharedDataCache;
 
 - (NSData *)getDataFromURL:(NSString *)URLString cached:(BOOL)cached;
-- (NSString *)filePathForFileName:(NSString *)fileName;
-- (NSString *)cacheDirectoryPath;
 - (BOOL)isDataFromURLCached:(NSString *)URLString;
 
 @end

@@ -30,6 +30,9 @@
 
 @property(nonatomic, retain) NSDictionary *cache;
 
+- (NSString *)filePathForFileName:(NSString *)fileName;
+- (NSString *)cacheDirectoryPath;
+
 @end
 
 @implementation TCUWebDataCache
@@ -78,7 +81,7 @@
 }
 
 - (NSString *)cacheDirectoryPath {
-    return [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"WebDataCache/"];
+    return [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"TCUWebDataCache/"];
 }
 
 - (BOOL)isDataFromURLCached:(NSString *)URLString {
