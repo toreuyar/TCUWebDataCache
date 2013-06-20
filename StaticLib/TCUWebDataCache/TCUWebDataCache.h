@@ -35,6 +35,7 @@
 + (TCUWebDataCache *)sharedDataCache;
 
 - (NSData *)getDataFromURL:(NSString *)URLString cached:(BOOL)cached;
+- (NSData *)getCachedDataFromURL:(NSString *)URLString;
 - (BOOL)isDataFromURLCached:(NSString *)URLString;
 
 @end

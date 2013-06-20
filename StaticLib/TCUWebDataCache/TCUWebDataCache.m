@@ -140,4 +140,22 @@
     return data;
 }
 
+- (NSData *)getCachedDataFromURL:(NSString *)URLString {
+    if (!URLString) {
+        return nil;
+    }
+    @synchronized(self) {
+        if ([self.cache objectForKey:URLString]) {
+            NSString *filePath = [self filePathForFileName:[self.cache objectForKey:URLString]];
+            if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+                NSData *data = [NSData dataWithContentsOfFile:filePath];
+                if (data) {
+                    return data;
+                }
+            }
+        }
+    }
+    return nil;
+}
+
 @end
